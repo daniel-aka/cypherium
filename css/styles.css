@@ -1,0 +1,217 @@
+/* fonts */
+*{
+    font-family: "DM Sans", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+.dm-sans{
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.logo{
+    color: #fff !important;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma,;
+    border-bottom: 2px solid white;
+}
+.navbar{
+    background: linear-gradient(to right, #0E3E83, #4B3F80);
+}
+.navs{
+    font-size: 1rem;
+    font-family: Georgia;
+}
+.space{
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+/* Smooth underline effect on hover */
+.nav-item .dec {
+    position: relative;
+    text-decoration: none;
+    font-family: Impact ;
+    color: #fff; /* Inherit the default text color */
+    letter-spacing: 2px;
+  }
+  
+  .nav-item .dec::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px; /* Thickness of the underline */
+    background-color: #fff; /* Color of the underline */
+    bottom: -5px; /* Distance of the underline from the text */
+    left: 0;
+    transition: width 0.3s ease; /* Smooth transition */
+  }
+  
+  .nav-item .dec:hover::after {
+    width: 100%; /* Full width on hover */
+  }
+  .deco{
+    color: #fff;
+  }
+.divide{
+    border-top: 3px solid #fff;
+    background-image: url(../assets/bgs\ \(2\).jpg);
+    background-size: cover;
+    width: 100%;
+    background-repeat: no-repeat;
+}
+.karla{
+    /* color: #fff !important; */
+    font-size: 20px;
+    font-weight: 500;
+}
+.custom_btn{
+    background-color: #fff;
+    color: blue;
+    border-radius: 6px;
+    font-size: 18px;
+}
+.hero-section{
+    height: 120vh;
+}
+.logo_span{
+    text-decoration: solid;
+}
+/* Custom styles */
+.features-section{
+    background: linear-gradient( to right, #1E205F, #3C215F);
+    min-height: 90vh;
+}
+  .features-section .card {
+    transition: transform 0.3s;
+  }
+  
+  .features-section .card:hover {
+    transform: translateY(-10px);
+  }
+
+.achivements{
+    margin-top: 8rem;
+}
+.achivements .card{
+    border: none;
+    border-radius: 6px;
+    transition: transform 0.3s;
+    background-color: #0D6EFD;
+
+}
+.achivements .card-body{
+    background-color: #0D6EFD;
+    border-radius: 6px;
+    border: none;
+    color: #fff;
+}
+.achivements .card-body:hover{
+    transform: translateY(-10px);
+}
+.achivements .card-body img{
+   width: 60%;
+   /* height: 90%; */
+   border-radius: 20px;
+}
+.mtay{
+    margin-top: 12rem;
+}
+.about-us{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.p-us{
+    font-size: 1rem;
+    width: 90%;
+}
+.p-us2{
+    font-size: 2.5rem;
+    font-weight: 600;
+    width: 60%;
+    line-height: 50px;
+}
+.our_amazing{
+    color: #27205F !important;
+}
+/* Investment Section */
+.investment-section {
+    background-color: #5561AD;
+  }
+  
+  .investment-section h2 {
+    color: #fff; /* Dark brown color for headings */
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+  
+  .investment-section h1 {
+    color: #fff; /* Dark brown color for headings */
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .investment-section p {
+    color: #fff; /* Gray color for text */
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+  
+  /* Investment Cards */
+  .investment-card {
+    background-color: #0D6EFD; /* Dark brown background for cards */
+    border: none;
+    border-radius: 12px;
+    color: #fff; /* White text for cards */
+    transition: transform 0.3s ease;
+  }
+  
+  .investment-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+  }
+  
+  .investment-card .card-title {
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+  
+  .investment-card .card-text {
+    font-size: 0.9rem;
+    color: #e0e0e0; /* Light gray for card text */
+  }
+  
+  /* Higher Card */
+  .higher-card {
+    margin-top: ; /* Shift the card up */
+  }
+  
+  /* Custom Button */
+  .btn-custom {
+    background-color: #0D6EFD; /* Orange background for button */
+    color: #fff; /* Black text for button */
+    border-radius: 50px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-custom:hover {
+    background-color: #d18d00; /* Darker orange on hover */
+  }
+
+  /* .post{
+    position: relative;
+  }
+  .post img{
+    position: absolute;
+    top: -100;
+    left: 0;
+    width: 100%;
+    border: 2px solid #fff;
+  } */

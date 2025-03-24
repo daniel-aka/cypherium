@@ -501,9 +501,11 @@
     .hero-text {
       max-width: 100%;
     }
-    
+    .hero-texts span{
+        font-size: 1rem;
+    }
     .about-section {
-      padding: 8rem 0 4rem;
+      padding: 1rem 0 4rem;
     }
     
     .about-image {
@@ -526,15 +528,20 @@
   
   @media (max-width: 768px) {
     .hero-section {
-      padding: 5rem 0 10rem;
+      padding: 2rem 0 5rem;
       text-align: center;
     }
     
+    .hero-subtitle{
+      font-size: 1.2rem;
+    color: #185dc5;
+    }
     .hero-title {
       font-size: 2.2rem;
     }
     
     .hero-text {
+     font-size: 0.8rem;
       margin-left: auto;
       margin-right: auto;
     }

@@ -439,6 +439,136 @@
     opacity: 0.8;
   }
   
+ /* How It Works Section */
+.how-it-works {
+    background:url(../assets/bgs\ \(3\).jpg);
+    padding: 6rem 0;
+    position: relative;
+  }
+  
+  .section-header {
+    margin-bottom: 3rem;
+  }
+  
+  .section-subtitle {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+  
+  .section-title {
+    color: var(--white);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  .section-description {
+    color: var(--white);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .steps-container {
+    position: relative;
+  }
+  
+  .step-item {
+    margin-bottom: 2rem;
+  }
+  
+  .step-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    height: 100%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .step-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .step-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 2rem;
+  }
+  
+  .step-title {
+    color: var(--dark-blue);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .step-text {
+    color: var(--dark-gray);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .step-text a{
+    color: var(--primary-dark);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .arrow-container {
+    padding: 0;
+  }
+  
+  .arrow-container i {
+    color: var(--primary-color);
+    font-size: 2rem;
+    opacity: 0.7;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 992px) {
+    .arrow-container {
+      display: none !important;
+    }
+    
+    .step-item {
+      margin-bottom: 3rem;
+    }
+    
+    .step-card {
+      max-width: 350px;
+      margin: 0 auto;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .how-it-works {
+      padding: 4rem 0;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+    }
+    
+    .step-icon {
+      width: 70px;
+      height: 70px;
+      font-size: 1.8rem;
+    }
+  }
   /* Buttons */
   .btn {
     padding: var(--btn-padding);

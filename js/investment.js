@@ -2,8 +2,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Plan configurations (ROI percentages)
     const plans = {
-      'Gold Plan': { roi: 120, min: 500, max: 50000 },
-      'Silver Plan': { roi: 80, min:300, max: 25000 },
+      'Gold Plan': { roi: 120, min: 25000, max: 500000 },
+      'Silver Plan': { roi: 80, min:500, max: 24000 },
       'Bronze Plan': { roi: 50, min: 200, max: 12500 }
     };
   

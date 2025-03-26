@@ -2200,33 +2200,35 @@
 /* Referral program */
 .cta-icons-section {
     background-color: var(--dark-blue);
-    padding: 60px ;
+    padding: 40px 20px; /* Reduced padding for mobile */
     font-family: var(--font-main);
 }
 
 .cta-icons-container {
-    width: 90%;
+    width: 100%; /* Changed from 90% to use full width on mobile */
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 30px;
+    flex-direction: column; /* Stack items vertically on mobile */
+    align-items: center; /* Center items when stacked */
+    gap: 20px; /* Reduced gap for mobile */
 }
 
 .cta-icon-item {
     background-color: #3C215F;
     text-align: center;
     color: var(--white);
-    flex: 1;
-    min-width: 50px;
-    padding: 40px;
+    width: 100%; /* Full width on mobile */
+    max-width: 300px; /* Maximum width for better readability */
+    padding: 30px 20px; /* Reduced padding for mobile */
     border-radius: 6px;
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .cta-icon-item i {
     color: var(--accent-color);
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Reduced margin for mobile */
+    font-size: 2.5rem; /* Slightly smaller icons for mobile */
     transition: transform 0.3s ease;
 }
 
@@ -2235,9 +2237,38 @@
 }
 
 .cta-icon-item h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem; /* Slightly smaller text for mobile */
     margin: 0;
     font-weight: 600;
+}
+
+/* Desktop styles - applied only on wider screens */
+@media (min-width: 768px) {
+    .cta-icons-section {
+        padding: 60px;
+    }
+    
+    .cta-icons-container {
+        width: 90%;
+        flex-direction: row; /* Horizontal layout on desktop */
+        justify-content: space-around;
+        gap: 30px;
+    }
+    
+    .cta-icon-item {
+        flex: 1;
+        min-width: 50px;
+        padding: 50px;
+    }
+    
+    .cta-icon-item i {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+    
+    .cta-icon-item h3 {
+        font-size: 1.5rem;
+    }
 }
 .affiliate-program4 {
     background-color: var(--dark-blue);

@@ -3,67 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cypherium | Crypto Investment Platform | About Us</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="./css/styles.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
+    <title>Cypherium | Crypto Investment Platform | Referral</title>
+     <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+   <!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
         
         
+    .hero {
+        background-color: #5561AD;
+        padding: 80px 0 40px;
+        text-align: center;
+        position: relative;
+    }
+    
+    .breadcrumb {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: var(--accent-color);
+        opacity: 0.8;
+    }
+    
+    .breadcrumb a {
+        color: var(--white);
+        text-decoration: none;
+    }
+    
+    .breadcrumb a:hover {
+        text-decoration: underline;
+    }
+    
+    .hero h1 {
+        margin: 0;
+        font-size: 3rem;
+        color: var(--white);
+        padding: 0 20px;
+    }
+    
+    @media (max-width: 768px) {
         .hero {
-            background-color: #5561AD;
-            padding: 80px 0 40px;
-            text-align: center;
-            position: relative;
-        }
-        
-        .breadcrumb {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--accent-color);
-            opacity: 0.8;
-        }
-        
-        .breadcrumb a {
-            color: var(--white);
-            text-decoration: none;
-        }
-        
-        .breadcrumb a:hover {
-            text-decoration: underline;
+            padding: 60px 0 30px;
         }
         
         .hero h1 {
-            margin: 0;
-            font-size: 3rem;
-            color: var(--white);
-            padding: 0 20px;
+            font-size: 2.2rem;
         }
-        
-        @media (max-width: 768px) {
-            .hero {
-                padding: 60px 0 30px;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
-<!-- Navigation -->
+    
+    <!-- Navigation -->
 <header>
     <nav class="navbar navbar-expand-lg">
       <div class="container">
@@ -77,18 +78,18 @@
               <a class="nav-link nav-link-main" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link-main active-on" href="about.html">About Us</a>
+              <a class="nav-link nav-link-main" href="about.html">About Us</a>
             </li>
             <li class="nav-item">
               <a class="nav-link nav-link-main" href="investment.html">Investment</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle nav-link-main" href="#" role="button" data-bs-toggle="dropdown">
+              <a class="nav-link dropdown-toggle nav-link-main active-on" href="#" role="button" data-bs-toggle="dropdown">
                 Pages
               </a>
               <ul class="dropdown-menu dropdown-menu-dark">
                 <li><a class="dropdown-item" href="features.html">Features</a></li>
-                <li><a class="dropdown-item" href="referral.html">Referral program</a></li>
+                <li><a class="dropdown-item active-on" href="#">Referral program</a></li>
                 <li><a class="dropdown-item" href="terms.html">Terms and conditions</a></li>
                 <li><a class="dropdown-item" href="faqs.html">Faqs</a></li>
               </ul>
@@ -111,183 +112,136 @@
   </header>
   <section class="hero">
     <div class="breadcrumb">
-        <a href="index.html">Home </a>  → About Us
+        <a href="index.html">Home </a>→  Pages  → Referral 
     </div>
-    <h1>About Us</h1>
+    <h1>Referral program</h1>
+</section>
+<section class="cta-icons-section">
+    <div class="cta-icons-container">
+        <div class="cta-icon-item">
+            <i class="fas fa-user-plus fa-3x"></i>
+            <h3>Join Now</h3>
+        </div>
+        
+        <div class="cta-icon-item">
+            <i class="fas fa-bullhorn fa-3x"></i>
+            <h3>Promote</h3>
+        </div>
+        
+        <div class="cta-icon-item">
+            <i class="fas fa-hand-holding-usd fa-3x"></i>
+            <h3>Earn</h3>
+        </div>
+    </div>
 </section>
 
-  <!-- About Section -->
-  <section class="about-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 d-none d-lg-block">
-          <img src="../assets/edit/Screenshot_2025-03-20_184051-removebg-preview.png" alt="About Cypherium" class="about-image">
-        </div>
-        <div class="col-lg-6 about-content">
-          <div class="section-subtitle">About Cypherium</div>
-          <h2 class="section-title">Stable Earnings with a guaranteed floating rate</h2>
-          <p class="about-text">
-            There has been always a demand for a quality investment services.
-            In an attempt to satisfy this demand, the idea of creating the Cypherium company came up. Cypherium is a modern investment company that combines the most advanced projects in its work. <br><br>
-            
-            We worked hard to develop a multifunctional cryptocurrency investment space where people from the whole globe can earn on digital currencies.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="mission-section">
-    <div class="container">
-        <h2 class="section-title">Our Mission to help our User</h2>
-        <h3 class="mission-subtitle">To Maximize Money</h3>
-        <p class="mission-description">We are worldwide investment company who are committed to the principle of revenue maximization and reduction of the financial risks at investing.</p>
-        
-        <div class="features-grid2">
-            <div class="feature-card2">
-                <h4>Fast & Simple</h4>
-                <p>Our team consists of specialists with longstanding experience.</p>
-            </div>
-            
-            <div class="feature-card2">
-                <h4>License</h4>
-                <p>Our company has all the necessary documents to legally engage!</p>
-            </div>
-            
-            <div class="feature-card2">
-                <h4>Maximized Profit</h4>
-                <p>Careful selection of investment diversification gives excellent.</p>
-            </div>
-        </div>
-       
-    </div>
-</section>
-<section class="rivest-numbers">
-    <div class="container">
-        <h2 class="section-title2">Cypherium in Numbers</h2>
-        <p class="section-subtitle2">Funds' Statistics</p>
-        <p class="section-description2">Here you can find online investment portfolio statistics and the number of our investors.</p>
-        
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-card-body">
-                    <img src="../assets/bank-pig.jpg" alt="Total Deposits">
-                    <h3 class="stat-value">73,457.47</h3>
-                    <p class="stat-label">Total Deposited</p>
-                </div>
-            </div>
-            
-            <div class="stat-card">
-                <div class="stat-card-body">
-                    <img src="../assets/networkers.jpg" alt="Total Members">
-                    <h3 class="stat-value">56,436</h3>
-                    <p class="stat-label">Total Members</p>
-                </div>
-            </div>
-            
-            <div class="stat-card">
-                <div class="stat-card-body">
-                    <img src="../assets/1968.jpg" alt="Countries Supported">
-                    <h3 class="stat-value">123</h3>
-                    <p class="stat-label">Countries Supported</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
- <!-- Features Section --> 
- <section class="features-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 features-intro">
-          <div class="section-subtitle">Our Amazing Features</div>
-          <h2 class="section-title">Why Should You Invest</h2>
-          <p class="features-description">
-            We are a worldwide investment company committed to the principle of revenue maximization and reducing the financial risks at investing.
-          </p>
-          <a href="features.html" class="btn btn-outline-light">Discover More</a>
-        </div>
-        <div class="col-lg-6">
-          <div class="row features-grid">
-            <div class="col-md-6 col-lg-6">
-              <div class="feature-card">
-                <h5 class="feature-title">Fast & Simple</h5>
-                <p class="feature-text">Start investing in under 10 minutes</p>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-6">
-              <div class="feature-card">
-                <h5 class="feature-title">Easy deposit & withdrawals</h5>
-                <p class="feature-text">Quickly add & withdraw funds to your bank account</p>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-6">
-              <div class="feature-card">
-                <h5 class="feature-title">Deep Encryption</h5>
-                <p class="feature-text">All data is encrypted to secure your passwords & personal data.</p>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-6">
-              <div class="feature-card">
-                <h5 class="feature-title">Safe & Secure</h5>
-                <p class="feature-text">World-class security features ensure your investments are in safe hands.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-    <!-- Our Team Section -->
-<section class="our-team py-5">
-    <div class="container">
-      <div class="row align-items-center">
-        <!-- Left Column - Content -->
-        <div class="col-lg-6 mb-5 mb-lg-0">
-          <h2 class="section-subtitle">Our Team</h2>
-          <h1 class="section-title">The Amazing<br>Team Behind<br>Our Company</h1>
-          <p class="team-description">
-            Our Global investment community have worked together to build the ultimate investment site: happy investor reminds us how lucky.
-          </p>
-          <a href="#" class="btn btn-team">Get Started Today <i class="fas fa-arrow-right ms-2"></i></a>
-        </div>
-  
-        <!-- Right Column - Team Members -->
-        <div class="col-lg-6">
-          <div class="row">
-            <!-- Team Member 1 -->
-            <div class="col-md-6 mb-4">
-              <div class="team-card">
-                <div class="team-img-placeholder place-bg">
-                  <!-- Image placeholder for Kent Nash -->
-                  <img src=".//assets/kent.png" alt="Kent Nash" class="img-fluid">
-                </div>
-                <div class="team-info">
-                  <h3 class="team-name">Kent Nash</h3>
-                  <p class="team-position">Investment Specialist</p>
-                </div>
-              </div>
+    <!-- Affiliate Program Section -->
+    <section class="affiliate-program py-5">
+        <div class="container">
+          <div class="row align-items-center">
+            <!-- Left Column - Content -->
+            <div class="col-lg-6 mb-4 mb-lg-0">
+              <h2 class="section-subtitle">What You'll Get as</h2>
+              <h1 class="section-title">Affiliate Program</h1>
+              <p class="program-description">
+                Cypherium provides an adaptive and profitable affiliate program for long-term partnership. 
+                You will receive referral commissions from your partner's deposits and also from his daily income.
+              </p>
+              <p class="program-requirements">
+                The affiliate program is working up to 3 referral levels. To join to the affiliate program, 
+                you should have an active deposit in the project.
+              </p>
+              <a href="#" class="btn btn-affiliate">Join Now <i class="fas fa-arrow-right ms-2"></i></a>
             </div>
   
-            <!-- Team Member 2 -->
-            <div class="col-md-6 mb-4">
-              <div class="team-card">
-                <div class="team-img-placeholder place-bg2">
-                  <!-- Image placeholder for Emma watson -->
-                  <img src=".//assets/Emma2.png" alt="Teri Curtis" class="img-fluid">
+            <!-- Right Column - Levels -->
+            <div class="col-lg-6">
+              <div class="levels-container">
+                <!-- Level 1 -->
+                <div class="level-card">
+                  <div class="level-percent">10%</div>
+                  <div class="level-info">
+                    <h3 class="level-title">Level 1</h3>
+                    <p class="level-desc">Direct referrals</p>
+                  </div>
                 </div>
-                <div class="team-info">
-                  <h3 class="team-name">Emma watson</h3>
-                  <p class="team-position">Advisory Member</p>
+                
+                <!-- Level 2 -->
+                <div class="level-card">
+                  <div class="level-percent">5%</div>
+                  <div class="level-info">
+                    <h3 class="level-title">Level 2</h3>
+                    <p class="level-desc">Second-tier referrals</p>
+                  </div>
+                </div>
+                
+                <!-- Level 3 -->
+                <div class="level-card">
+                  <div class="level-percent">2%</div>
+                  <div class="level-info">
+                    <h3 class="level-title">Level 3</h3>
+                    <p class="level-desc">Third-tier referrals</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-    <!-- The rest of your page content will go here -->
-     <!-- FAQ Section -->
+      </section>
+      <section class="affiliate-program4">
+        <div class="affiliate-container4">
+            <div class="affiliate-content4">
+                <span class="affiliate-badge4">Earn Money With Cypherium</span>
+                <h2 class="affiliate-title4">Refer your friends <br>to Earn 10%</h2>
+                <p class="affiliate-description4">
+                    Our affiliate program is a unique opportunity to earn money<br>
+                    simply by referring customers to us
+                </p>
+                <a href="#" class="affiliate-button4">Join Affiliate Program →</a>
+            </div>
+            <div class="affiliate-image4">
+                <!-- Image space on the right -->
+                <img src="./assets/referral.png" alt="Affiliate program illustration" class="affiliate-img4">
+            </div>
+        </div>
+    </section>
+
+    <section class="affiliate-benefits2">
+        <div class="affiliate-container2">
+            <div class="affiliate-header2">
+                <span class="affiliate-badge2">Earn Money With Cypherium</span>
+                <h2 class="affiliate-title2">Why Should You<br>Join Affiliate</h2>
+                <p class="affiliate-description2">
+                    Our affiliate program is a unique opportunity to earn money<br>
+                    simply by referring customers to us
+                </p>
+            </div>
+            
+            <div class="benefits-grid2">
+                <div class="benefit-card2">
+                    <i class="fas fa-percentage fa-3x benefit-icon2"></i>
+                    <h3 class="benefit-title2">Highest Commission Rate</h3>
+                </div>
+                
+                <div class="benefit-card2">
+                    <i class="fas fa-award fa-3x benefit-icon2"></i>
+                    <h3 class="benefit-title2">Performance Bonus</h3>
+                </div>
+                
+                <div class="benefit-card2">
+                    <i class="fas fa-chart-line fa-3x benefit-icon2"></i>
+                    <h3 class="benefit-title2">Performance Reporting</h3>
+                </div>
+                
+                <div class="benefit-card2">
+                    <i class="fas fa-tachometer-alt fa-3x benefit-icon2"></i>
+                    <h3 class="benefit-title2">Live Dashboard</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+  <!-- FAQ Section -->
   <section class="faq-section py-5">
     <div class="container">
       <div class="section-header text-center mb-5">
@@ -488,7 +442,7 @@
         <h5 class="footer-section-title">Quick Links</h5>
         <ul class="footer-nav">
           <li><a href="index.html" class="footer-link">Home</a></li>
-          <li><a href="#" class="footer-link">About Us</a></li>
+          <li><a href="about.html" class="footer-link">About Us</a></li>
           <li><a href="investment.html" class="footer-link">Investment Plans</a></li>
           <li><a href="features.html" class="footer-link">Features</a></li>
           <li><a href="#" class="footer-link">Contact</a></li>
@@ -526,7 +480,7 @@
   </div>
 </footer>
 
-     <!--Start of Tawk.to Script-->
+<!--Start of Tawk.to Script-->
 <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
@@ -546,5 +500,6 @@
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
 </body>
 </html>

@@ -51,7 +51,7 @@ const connectDB = async () => {
         const conn = await mongoose.connect(process.env.MONGODB_URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            serverSelectionTimeoutMS: 30000, // Increase timeout to 30 seconds
+            serverSelectionTimeoutMS: 30000,
             socketTimeoutMS: 45000,
             retryWrites: true,
             w: 'majority',
@@ -61,12 +61,17 @@ const connectDB = async () => {
         console.log(`MongoDB Connected: ${conn.connection.host}`);
     } catch (error) {
         console.error('MongoDB connection error:', error);
-        // Retry connection after 5 seconds
-        setTimeout(connectDB, 5000);
+        // Don't retry in production
+        if (process.env.NODE_ENV !== 'production') {
+            setTimeout(connectDB, 5000);
+        }
     }
 };
 
-connectDB();
+// Only connect to MongoDB if we're not in a Vercel serverless function
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+    connectDB();
+}
 
 // Import routes
 const adminRoutes = require('./routes/admin');
@@ -108,7 +113,7 @@ app.post('/api/admin/login', (req, res) => {
 });
 
 // Serve frontend files
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
@@ -119,6 +124,9 @@ app.get('/admin-login.html', (req, res) => {
 app.get('/admin.html', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/admin.html'));
 });
+
+// Export the Express app for Vercel
+module.exports = app;
 
 // Start server
 const PORT = process.env.PORT || 5003;

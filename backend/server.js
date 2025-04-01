@@ -6,10 +6,41 @@ require('dotenv').config();
 
 const app = express();
 
+// CORS configuration
+app.use(cors({
+    origin: function(origin, callback) {
+        const allowedOrigins = [
+            'http://localhost:5500',  // Frontend development server
+            'http://localhost:5003',  // Backend server
+            'https://cypherium2.vercel.app'
+        ];
+        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            console.log('Blocked origin:', origin);  // Log blocked origins for debugging
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'X-Requested-With'],
+    exposedHeaders: ['Authorization', 'Content-Type']
+}));
+
+// Add pre-flight handling
+app.options('*', cors());
+
 // Middleware
-app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../frontend')));
+
+// Add error handling for JSON parsing
+app.use((err, req, res, next) => {
+    if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+        return res.status(400).json({ message: 'Invalid JSON' });
+    }
+    next();
+});
 
 // MongoDB Connection with retry logic
 const connectDB = async () => {
@@ -37,12 +68,23 @@ connectDB();
 // Import routes
 const adminRoutes = require('./routes/admin');
 const userRoutes = require('./routes/user');
-const authRoutes = require('./routes/auth');
+const authRoutes = require('./routes/authRoutes');
+const googleAuthRoutes = require('./routes/googleAuth');
 
 // Use routes
 app.use('/api/admin', adminRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/auth/google', googleAuthRoutes);
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ 
+        message: 'Something went wrong!',
+        error: process.env.NODE_ENV === 'development' ? err.message : undefined
+    });
+});
 
 // Simple admin login route
 app.post('/api/admin/login', (req, res) => {
@@ -76,7 +118,7 @@ app.get('/admin.html', (req, res) => {
 });
 
 // Start server
-const PORT = process.env.PORT || 5006;
+const PORT = process.env.PORT || 5003;
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server running on port ${PORT}`);
 });

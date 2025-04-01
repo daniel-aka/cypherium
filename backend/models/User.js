@@ -38,8 +38,9 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: function() {
-            return !this.isGoogleUser; // Password is required only for non-Google users
-        }
+            return !this.googleId; // Password is required only for non-Google users
+        },
+        select: false
     },
     fullName: {
         type: String,
@@ -81,12 +82,18 @@ const userSchema = new mongoose.Schema({
     lastLogin: {
         type: Date
     },
-    isGoogleUser: {
-        type: Boolean,
-        default: false
+    googleId: {
+        type: String,
+        unique: true,
+        sparse: true
     },
-    secretQuestion: String,
-    secretAnswer: String,
+    secretQuestion: {
+        type: String,
+        enum: ['mother_maiden', 'first_pet', 'birth_city', 'school_name']
+    },
+    secretAnswer: {
+        type: String
+    },
     transactions: [transactionSchema],
     createdAt: {
         type: Date,
@@ -98,15 +105,10 @@ const userSchema = new mongoose.Schema({
 
 // Hash password before saving
 userSchema.pre('save', async function(next) {
-    if (!this.isModified('password') || !this.password) return next();
-    
-    try {
-        const salt = await bcrypt.genSalt(10);
-        this.password = await bcrypt.hash(this.password, salt);
-        next();
-    } catch (error) {
-        next(error);
+    if (this.isModified('password') && this.password) {
+        this.password = await bcrypt.hash(this.password, 10);
     }
+    next();
 });
 
 // Generate unique referral code

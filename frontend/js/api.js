@@ -1,42 +1,116 @@
 const api = {
-    baseUrl: 'http://localhost:5001',
+    // Use environment-specific base URL from config
+    baseUrl: config.backendUrl,
     
     // Helper function to handle API responses
     async handleResponse(response) {
         if (!response.ok) {
-            const error = await response.json();
-            throw new Error(error.message || 'An error occurred');
+            const contentType = response.headers.get('content-type');
+            if (contentType && contentType.includes('application/json')) {
+                const error = await response.json();
+                throw new Error(error.message || 'An error occurred');
+            } else {
+                throw new Error(`Server error: ${response.status}`);
+            }
         }
         return response.json();
+    },
+
+    // Helper function to get auth headers
+    getAuthHeaders() {
+        const token = localStorage.getItem('token');
+        return {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            ...(token ? { 'Authorization': `Bearer ${token}` } : {})
+        };
     },
 
     // Authentication endpoints
     auth: {
         async login(email, password) {
-            const response = await fetch(`${api.baseUrl}/api/login`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ email, password })
-            });
-            const data = await api.handleResponse(response);
-            if (data.token) {
-                localStorage.setItem('token', data.token);
-                localStorage.setItem('user', JSON.stringify(data.user));
+            try {
+                const response = await fetch(`${api.baseUrl}/api/auth/login`, {
+                    method: 'POST',
+                    headers: api.getAuthHeaders(),
+                    credentials: 'include',
+                    body: JSON.stringify({ email, password })
+                });
+                const data = await api.handleResponse(response);
+                if (data.token) {
+                    localStorage.setItem('token', data.token);
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                }
+                return data;
+            } catch (error) {
+                console.error('Login error:', error);
+                throw new Error(error.message || 'Failed to login. Please try again.');
             }
-            return data;
         },
 
         async register(userData) {
-            const response = await fetch(`${api.baseUrl}/api/register`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(userData)
-            });
-            return api.handleResponse(response);
+            try {
+                const response = await fetch(`${api.baseUrl}/api/auth/register`, {
+                    method: 'POST',
+                    headers: api.getAuthHeaders(),
+                    credentials: 'include',
+                    body: JSON.stringify(userData)
+                });
+                return api.handleResponse(response);
+            } catch (error) {
+                console.error('Registration error:', error);
+                throw new Error(error.message || 'Failed to register. Please try again.');
+            }
+        },
+
+        async googleSignIn(credential) {
+            try {
+                const url = `${api.baseUrl}/api/auth/google`;
+                console.log('Attempting Google sign-in to:', url);
+                console.log('Using backend URL:', api.baseUrl);
+                
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify({ credential })
+                });
+                
+                console.log('Response status:', response.status);
+                console.log('Response headers:', Object.fromEntries(response.headers.entries()));
+                
+                if (!response.ok) {
+                    const contentType = response.headers.get('content-type');
+                    if (contentType && contentType.includes('application/json')) {
+                        const error = await response.json();
+                        throw new Error(error.message || 'Failed to sign in with Google');
+                    } else {
+                        const text = await response.text();
+                        console.error('Non-JSON response:', text);
+                        throw new Error(`Server error: ${response.status}`);
+                    }
+                }
+                
+                const data = await response.json();
+                console.log('Sign-in successful:', data);
+                
+                if (!data.token) {
+                    throw new Error('No authentication token received');
+                }
+                
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('user', JSON.stringify(data.user));
+                return data;
+            } catch (error) {
+                console.error('Google sign-in error:', error);
+                if (error.message === 'Failed to fetch') {
+                    throw new Error(`Unable to connect to the server at ${api.baseUrl}. Please make sure the server is running.`);
+                }
+                throw new Error(error.message || 'Failed to sign in with Google. Please try again.');
+            }
         },
 
         async logout() {
@@ -51,7 +125,7 @@ const api = {
                 throw new Error('No authentication token found');
             }
 
-            const response = await fetch(`${api.baseUrl}/api/user`, {
+            const response = await fetch(`${api.baseUrl}/api/auth/user`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }

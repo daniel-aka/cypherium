@@ -98,8 +98,26 @@
             margin-bottom: 0.5rem;
         }
 
-        .welcome-subtitle {
+        .welcome-text {
             opacity: 0.9;
+        }
+
+        .balance-info {
+            text-align: right;
+        }
+
+        .balance-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .balance-amount {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0;
+            color: var(--accent-color);
         }
 
         .table {
@@ -362,8 +380,20 @@
     <div class="container py-4">
         <!-- Welcome Section -->
         <div class="welcome-section">
-            <h1 class="welcome-title">Welcome back, <span id="userFullName">User</span>!</h1>
-            <p class="welcome-subtitle">Here's an overview of your investment portfolio</p>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h1 class="welcome-title">Welcome back!</h1>
+                        <p class="welcome-text">Here's what's happening with your investments today.</p>
+                    </div>
+                    <div class="col-md-6 text-end">
+                        <div class="balance-info">
+                            <h3 class="balance-title">Wallet Balance</h3>
+                            <h2 class="balance-amount" id="walletBalance">$0.00</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Quick Actions -->
@@ -413,11 +443,8 @@
         <!-- Investment History -->
         <div class="dashboard-card">
             <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center mb-4">
+                <div class="text-center mb-4">
                     <h5 class="card-title mb-0">Investment History</h5>
-                    <button class="btn btn-primary">
-                        <i class="bi bi-download me-2"></i>Export
-                    </button>
                 </div>
                 <div class="table-responsive">
                     <table class="table">
@@ -756,6 +783,57 @@
         })();
     </script>
     <script>
+        // Check authentication
+        document.addEventListener('DOMContentLoaded', function() {
+            const token = localStorage.getItem('token');
+            const user = JSON.parse(localStorage.getItem('user'));
+
+            if (!token || !user) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // Update username in dropdown
+            const userNameElement = document.getElementById('userName');
+            if (userNameElement && user.username) {
+                userNameElement.textContent = user.username;
+            }
+
+            // Load user data
+            loadUserData();
+        });
+
+        // Load user data
+        async function loadUserData() {
+            try {
+                const response = await fetch(`${api.baseUrl}/api/users/profile`, {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to load user data');
+                }
+
+                const data = await response.json();
+                
+                // Update username in dropdown
+                const userNameElement = document.getElementById('userName');
+                if (userNameElement && data.username) {
+                    userNameElement.textContent = data.username;
+                }
+
+                // Update wallet balance
+                const walletBalanceElement = document.getElementById('walletBalance');
+                if (walletBalanceElement && data.balance !== undefined) {
+                    walletBalanceElement.textContent = `$${data.balance.toFixed(2)}`;
+                }
+            } catch (error) {
+                console.error('Error loading user data:', error);
+            }
+        }
+
         // Check if user is authenticated
         document.addEventListener('DOMContentLoaded', async () => {
             const token = localStorage.getItem('token');
@@ -1282,6 +1360,6 @@
                 showAlert(error.message, 'danger');
             }
         }
-      </script>
+    </script>
 </body>
 </html>
